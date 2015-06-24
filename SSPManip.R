@@ -14,14 +14,15 @@
 #     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #     GNU General Public License for more details at http://www.gnu.org/licenses/.
 
-setwd("~/Documents/workspace/SSP")
+setwd("~/Documents/workspace/SSPDataManipulation")
 library(openxlsx) 
 library(reshape2)
 library(splitstackshape)
 #library(plotrix)
 #userName is reported in the basic info worksheet
 userName <- "Gerald Nelson"
-SSPDat <- read.csv("~/Documents/workspace/nutrient-modeling/data/SSPData/SspDb_country_data_2013-06-12.csv", stringsAsFactors=FALSE)
+
+SSPDat <- read.csv(unz(description = "data/SspDb_country_data_2013-06-12.csv.zip", file="SspDb_country_data_2013-06-12.csv"), stringsAsFactors=FALSE)
 #remove years 1950 to 1995 and 2105 to 2150 because they are all NAs. 
 #Remove years X2000 and X2005 later because they are NA for pop values
 keepCols <- c("MODEL", "SCENARIO", "REGION", "VARIABLE","UNIT","X2000","X2005","X2010","X2015","X2020","X2025","X2030","X2035","X2040","X2045","X2050","X2055","X2060","X2065","X2070","X2075","X2080","X2085","X2090","X2095","X2100")
